@@ -352,16 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabEnemies:
-  - {fileID: 1864666716847092, guid: a69aa768d15cba34b96a5422e50dc9b4, type: 3}
-  - {fileID: 1864666716847092, guid: a69aa768d15cba34b96a5422e50dc9b4, type: 3}
-  - {fileID: 1864666716847092, guid: a69aa768d15cba34b96a5422e50dc9b4, type: 3}
   - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
-  - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
-  - {fileID: 1158547974957732, guid: a0a74b7d2e3ac2449b0e77185af83fed, type: 3}
-  - {fileID: 1158547974957732, guid: a0a74b7d2e3ac2449b0e77185af83fed, type: 3}
-  - {fileID: 1700942416061258, guid: 3f6055558a488314cb38691d88c41fdf, type: 3}
-  - {fileID: 1700942416061258, guid: 3f6055558a488314cb38691d88c41fdf, type: 3}
-  - {fileID: 1539775467464788, guid: 06677ec088bca734db80dc6ecea1d7af, type: 3}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
@@ -835,6 +826,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114684557380802588, guid: d38b8bdef6bb4724e9a7341bda0aad27,
+        type: 3}
+      propertyPath: def.damageOnHit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114684557380802588, guid: d38b8bdef6bb4724e9a7341bda0aad27,
+        type: 3}
+      propertyPath: _type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
 --- !u!850595691 &1250152324
@@ -969,7 +970,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6b1daafed4b5864696ab2969a670a88, type: 2}
+  - {fileID: 2100000, guid: a3d45173f566ae24daa102c466bfcd94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

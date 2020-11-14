@@ -12,16 +12,28 @@ public class Enemy_1 : Enemy {
     public float waveWidth = 4;
     public float waveRotY = 45;
 
+    //public GameObject EnemyprojectilePrefab;
+    public float projectileSpeed = 40;
+    public Weapon enemyWeapon;
+ 
+
+
     private float x0; // The initial x value of pos
     private float birthTime;
 
-	// Use this for initialization
-	void Start()
+
+    // Use this for initialization
+    void Start()
     {
         // Set x0 to the initial x position of Enemy_1
         x0 = pos.x;
 
         birthTime = Time.time;
+
+        //GameObject TGO = this.gameObject;
+
+        enemyWeapon = this.transform.Find("Weapon").GetComponent<Weapon>();
+        
     }
 
     // Override the Move function on Enemy
@@ -43,5 +55,15 @@ public class Enemy_1 : Enemy {
         base.Move();
 
         // print (bndCheck.isOnScreen);
+    }
+
+
+    void LateUpdate()
+    {
+        int rand = Random.Range(0,5); // random number 
+        if ( rand == 0)
+        {
+            enemyWeapon.enemyFire();
+        }
     }
 }

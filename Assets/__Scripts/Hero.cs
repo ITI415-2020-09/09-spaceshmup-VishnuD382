@@ -73,7 +73,10 @@ public class Hero : MonoBehaviour {
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        print("Triggered: " + go.name);
+
+        GameObject otherGO = other.gameObject;
+
+        print("Triggered: " + go.tag);
 
         // Make sure it's not the same triggering go as last time
         if (go == lastTriggerGo)
@@ -92,9 +95,21 @@ public class Hero : MonoBehaviour {
             // If the shield was triggered by a PowerUp
             AbsorbPowerUp(go);
         }
+        else if (go.tag == "_ProjectileAnchor") //need to change this
+        {
+            Projectile p = otherGO.GetComponent<Projectile>();
+            Destroy(go);
+            print("triggered by projectile\n");
+            shieldLevel--;
+        }
         else
         {
-            print("Triggered by non-Enemy: " + go.name);
+            //print("Triggered by non-Enemy: " + go.name);
+            Projectile p = otherGO.GetComponent<Projectile>();
+            Destroy(go);
+            print("triggered by projectile\n");
+            shieldLevel--;
+
         }
     }
 

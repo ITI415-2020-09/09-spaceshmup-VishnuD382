@@ -31,7 +31,7 @@ public class WeaponDefinition
     public Color color = Color.white; // Color of Collar & power-up
     public GameObject projectilePrefab; // Prefab for projectiles
     public Color projectileColor = Color.white;
-    public float damageOnHit = 0; // Amount of damage caused
+    public float damageOnHit = 10; // Amount of damage caused
     public float continuousDamage = 0; // Damage per second (Laser)
     public float delayBetweenShots = 0;
     public float velocity = 20; // Speed of projectiles
@@ -134,6 +134,31 @@ public class Weapon : MonoBehaviour {
         }
     }
 
+    public void enemyFire()
+    {
+        // If this.gameObject is inactive, return
+        if (!gameObject.activeInHierarchy) return;
+        // If it hasn't been enough time between shots, return
+        if (Time.time - lastShotTime < def.delayBetweenShots)
+        {
+            return;
+        }
+        Projectile p;
+        Vector3 vel = Vector3.up * def.velocity;
+        if (transform.up.y < 0)
+        {
+            vel.y = -vel.y;
+        }
+        switch (type)
+        {
+            case WeaponType.blaster:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                break;
+        }
+    }
+
+
     public Projectile MakeProjectile()
     {
         GameObject go = Instantiate<GameObject>(def.projectilePrefab);
@@ -145,6 +170,7 @@ public class Weapon : MonoBehaviour {
         else
         {
             go.tag = "ProjectileEnemy";
+            //print("TESTING");
             go.layer = LayerMask.NameToLayer("ProjectileEnemy");
         }
         go.transform.position = collar.transform.position;
